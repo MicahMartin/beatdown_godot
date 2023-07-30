@@ -34,9 +34,22 @@ func _process(_delta):
 		var posY = cb["posY"]
 		var type = cb["type"]
 		var disabled = cb["disabled"]
-		if !disabled:
+		if !disabled and (type == 1 or type == 2):
 			DebugGeometry.draw_debug_cube(0, Vector3((posX*scale)+(width/2*scale),(posY*scale)+(height/2*scale),7), Vector3(width*scale, height*scale, 0), colors[type])
-		
+	
+	var p1FireballPosX = stateObj["char1FireballPosX"]
+	var p1FireballPosY = stateObj["char1FireballPosY"]
+	DebugGeometry.draw_debug_point(0, Vector3(p1FireballPosX * scale, p1FireballPosY * scale, 7), .5, Color(0,0,125))
+	var p1FireballBoxes = stateObj["p1FireballBoxes"]
+	for cb in p1FireballBoxes:
+		var width = cb["width"]
+		var height = cb["height"]
+		var posX = cb["posX"]
+		var posY = cb["posY"]
+		var type = cb["type"]
+		var disabled = cb["disabled"]
+		if !disabled and (type == 1 or type == 2):
+			DebugGeometry.draw_debug_cube(0, Vector3((posX*scale)+(width/2*scale),(posY*scale)+(height/2*scale),7), Vector3(width*scale, height*scale, 0), colors[type])
 	var p2charPointX = stateObj["char2PosX"]
 	var p2charPointY = stateObj["char2PosY"]
 	DebugGeometry.draw_debug_point(0, Vector3(p2charPointX * scale, p2charPointY * scale, 7), .5, Color(0,0,125))

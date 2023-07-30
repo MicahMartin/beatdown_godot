@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cepi8cwrhkv4a"]
+
+[ext_resource type="Texture2D" uid="uid://b6jofjleke81n" path="res://art/particles/spark_02.png" id="1_g1t0a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j56jg"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_g1t0a")
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_gmdb8"]
+offsets = PackedFloat32Array(0, 0.521739, 1)
+colors = PackedColorArray(0.533458, 0.265055, 0, 1, 0.975678, 0, 0.0789828, 1, 0.703217, 0.3612, 0.0370806, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qxu48"]
+gradient = SubResource("Gradient_gmdb8")
+
+[sub_resource type="Curve" id="Curve_of0lu"]
+_data = [Vector2(0, 0.820611), 0.0, 0.0, 0, 0, Vector2(0.278151, 0.994657), 0.0, 0.0, 0, 0, Vector2(0.681513, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.838931), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_keb7p"]
+curve = SubResource("Curve_of0lu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k0vkf"]
+emission_shape = 1
+emission_sphere_radius = 0.08
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -15.0
+angular_velocity_max = 15.0
+angle_min = -720.0
+angle_max = 720.0
+scale_min = 1.2
+scale_max = 1.2
+scale_curve = SubResource("CurveTexture_keb7p")
+color_ramp = SubResource("GradientTexture1D_qxu48")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vat37"]
+
+[node name="hit_spark" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_j56jg")
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_k0vkf")
+draw_pass_1 = SubResource("QuadMesh_vat37")
