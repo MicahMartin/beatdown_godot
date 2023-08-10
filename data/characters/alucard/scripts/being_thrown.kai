@@ -1,0 +1,19 @@
+{ 
+  if($get_state_time == 0){ 
+    $set_combo 1;
+    $set_control 0; 
+    $velset_x 0; 
+    $velset_y 25000; 
+    $set_nograv_count 30;
+    $snap_to_opponent 150000; 
+  } 
+
+  if($get_state_time == 4){ 
+    $velset_y 0; 
+  } 
+
+  if($get_state_time == 30){ 
+    $set_hit_stun 20;
+    $cancel_state 5011; 
+  } 
+} 

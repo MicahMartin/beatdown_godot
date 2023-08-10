@@ -1,0 +1,204 @@
+[gd_scene load_steps=7 format=3 uid="uid://bx8yqs4d61ff4"]
+
+[ext_resource type="Texture2D" uid="uid://drbrsun6c8802" path="res://art/UI/image0.png" id="1_4qvmb"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_xys8q"]
+[ext_resource type="Texture2D" uid="uid://cyivxcg6n5l6s" path="res://art/UI/jonothong.png" id="2_bli55"]
+[ext_resource type="Texture2D" uid="uid://dqtyyc6nlkwc2" path="res://art/UI/image8.png" id="2_w1awv"]
+[ext_resource type="Texture2D" uid="uid://dg2w27w0pou4e" path="res://art/UI/image4.png" id="3_yrjju"]
+[ext_resource type="Texture2D" uid="uid://c5dfrbnhktvyf" path="res://art/UI/image3.png" id="4_l8a33"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_xys8q")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_4qvmb")
+
+[node name="optionPhoto" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 24.0
+offset_right = 1136.0
+offset_bottom = 616.0
+texture = ExtResource("2_bli55")
+expand_mode = 1
+
+[node name="menuOptions" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_w1awv")
+
+[node name="mainMenuText" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_yrjju")
+
+[node name="textBox" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_l8a33")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 736.0
+offset_top = 472.0
+offset_right = 1152.0
+offset_bottom = 568.0
+text = "Welcome To Beatdown!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuItemContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 64.0
+offset_right = 480.0
+offset_bottom = 624.0
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 26
+
+[node name="arcade" type="Button" parent="MenuItemContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                             "
+
+[node name="MarginContainer2" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 71
+
+[node name="story" type="Button" parent="MenuItemContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                       "
+
+[node name="MarginContainer3" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 130
+theme_override_constants/margin_top = 118
+
+[node name="versus" type="Button" parent="MenuItemContainer/MarginContainer3"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                         "
+
+[node name="MarginContainer4" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 190
+theme_override_constants/margin_top = 165
+
+[node name="network" type="Button" parent="MenuItemContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                                 "
+
+[node name="MarginContainer5" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 220
+theme_override_constants/margin_top = 220
+
+[node name="training" type="Button" parent="MenuItemContainer/MarginContainer5"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                                 "
+
+[node name="MarginContainer6" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_top = 270
+
+[node name="mission" type="Button" parent="MenuItemContainer/MarginContainer6"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                                 "
+
+[node name="MarginContainer7" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 280
+theme_override_constants/margin_top = 330
+
+[node name="gallery" type="Button" parent="MenuItemContainer/MarginContainer7"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                               "
+
+[node name="MarginContainer8" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 270
+theme_override_constants/margin_top = 385
+
+[node name="options" type="Button" parent="MenuItemContainer/MarginContainer8"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                               "
+
+[node name="MarginContainer9" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 235
+theme_override_constants/margin_top = 450
+
+[node name="store" type="Button" parent="MenuItemContainer/MarginContainer9"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                        "
+
+[node name="MarginContainer10" type="MarginContainer" parent="MenuItemContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 175
+theme_override_constants/margin_top = 515
+
+[node name="title" type="Button" parent="MenuItemContainer/MarginContainer10"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "                                                           "
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer/arcade" to="." method="_on_arcade_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer/arcade" to="." method="_on_arcade_focus_exited"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer2/story" to="." method="_on_story_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer2/story" to="." method="_on_story_focus_exited"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer3/versus" to="." method="_on_versus_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer3/versus" to="." method="_on_versus_focus_exited"]
+[connection signal="pressed" from="MenuItemContainer/MarginContainer3/versus" to="." method="_on_versus_pressed"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer4/network" to="." method="_on_network_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer4/network" to="." method="_on_network_focus_exited"]
+[connection signal="pressed" from="MenuItemContainer/MarginContainer4/network" to="." method="_on_network_pressed"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer5/training" to="." method="_on_training_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer5/training" to="." method="_on_training_focus_exited"]
+[connection signal="pressed" from="MenuItemContainer/MarginContainer5/training" to="." method="_on_training_pressed"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer6/mission" to="." method="_on_mission_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer6/mission" to="." method="_on_mission_focus_exited"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer7/gallery" to="." method="_on_gallery_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer7/gallery" to="." method="_on_gallery_focus_exited"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer8/options" to="." method="_on_options_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer8/options" to="." method="_on_options_focus_exited"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer9/store" to="." method="_on_store_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer9/store" to="." method="_on_store_focus_exited"]
+[connection signal="focus_entered" from="MenuItemContainer/MarginContainer10/title" to="." method="_on_title_focus_entered"]
+[connection signal="focus_exited" from="MenuItemContainer/MarginContainer10/title" to="." method="_on_title_focus_exited"]

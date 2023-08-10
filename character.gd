@@ -7,15 +7,22 @@ extends Node3D
 var anim
 var modelScale
 var timesLooped
+var stateTime
+var faceRight
+var stateNum
+var animLoops
+var currentAnim
+var stateObj
+var posX
+var posY
 
 func animGoToFrame(animation, frame, loops):
 	var animLength = animation.current_animation_length
 	var offsetMult = 0
 	var seconds = float(frame/60.0)
-	if(loops and seconds > animLength and animLength != 0):
+	if((loops) and (seconds > animLength) and (animLength != 0)):
 		offsetMult = animLength * int(seconds / animLength)
 		seconds -= offsetMult
-		
 	animation.seek(seconds, true)
 	
 
@@ -33,16 +40,17 @@ func _ready():
 
 
 func _process(_delta):
-	var stateObj = FGServer.getGameState()
-	var faceRight = stateObj["char"+str(pNum)+"FaceRight"]
-	#var stateNum = stateObj["char"+str(pNum)+"StateNum"]
-	var stateTime = stateObj["char"+str(pNum)+"StateTime"]
-	var animLoops = stateObj["char"+str(pNum)+"LoopAnimation"]
-	var currentAnim = stateObj["char"+str(pNum)+"CurrentAnim"]
+	stateObj = FGServer.getGameState()
+	faceRight = stateObj["char"+str(pNum)+"FaceRight"]
+	stateNum = stateObj["char"+str(pNum)+"StateNum"]
+	stateTime = stateObj["char"+str(pNum)+"StateTime"]
+	animLoops = stateObj["char"+str(pNum)+"LoopAnimation"]
+	currentAnim = stateObj["char"+str(pNum)+"CurrentAnim"]
+	posX = stateObj["char"+str(pNum)+"PosX"]
+	posY = stateObj["char"+str(pNum)+"PosY"]
 	if(stateTime == 0):
 		timesLooped = 0
 	
-	anim.current_animation = stateObj["char"+str(pNum)+"CurrentAnim"]
 	if (anim.current_animation != currentAnim):
 		anim.current_animation = currentAnim
 		

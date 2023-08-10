@@ -1,21 +1,17 @@
 [gd_scene load_steps=7 format=3 uid="uid://dnlr2s2w7dfj"]
 
+[ext_resource type="Script" path="res://main.gd" id="1_025kw"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="2_5dtbb"]
 [ext_resource type="Script" path="res://character.gd" id="4_ftguu"]
 [ext_resource type="PackedScene" uid="uid://b84g18l5pcrpt" path="res://art/Test_Stage.gltf" id="4_hm5qc"]
+[ext_resource type="Script" path="res://DebugStats.gd" id="5_onjlw"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bo2tn"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_lyg65"]
-sky_material = SubResource("ProceduralSkyMaterial_bo2tn")
-
-[sub_resource type="Environment" id="Environment_2euhv"]
-sky = SubResource("Sky_lyg65")
-tonemap_mode = 2
+[sub_resource type="Environment" id="Environment_2xrvx"]
+background_energy_multiplier = 3.0
 
 [node name="Main" type="Node"]
+process_mode = 1
+script = ExtResource("1_025kw")
 
 [node name="FightingGameServer" type="FightingGameServer" parent="."]
 
@@ -32,12 +28,10 @@ metadata/pnum = 2
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 3, 10)
 cull_mask = 1047553
-fov = 100.0
+current = true
+fov = 107.5
 size = 19.0
 script = ExtResource("2_5dtbb")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]
-transform = Transform3D(0.933184, 0.0047593, 0.359365, -0.113587, 0.952566, 0.282341, -0.340975, -0.304296, 0.88946, 1.56473, 3, 10)
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 anchors_preset = 15
@@ -52,13 +46,14 @@ transparent_bg = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
-size = Vector2i(1152, 648)
+size = Vector2i(640, 480)
 render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 3, 15)
 cull_mask = 1047554
 projection = 1
+current = true
 fov = 100.0
 size = 7.0
 near = 0.001
@@ -69,5 +64,31 @@ script = ExtResource("2_5dtbb")
 [node name="Test_Stage" parent="Stage" instance=ExtResource("4_hm5qc")]
 transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 19.5, 0, 22)
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 21.0647, 6, 20)
+layers = 3
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_2euhv")
+environment = SubResource("Environment_2xrvx")
+
+[node name="p1DebugStats" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 50
+script = ExtResource("5_onjlw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="p1DebugStats"]
+layout_mode = 2
+
+[node name="p2DebugStats" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+theme_override_constants/margin_right = 50
+script = ExtResource("5_onjlw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="p2DebugStats"]
+layout_mode = 2

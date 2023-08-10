@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://js1sybvj1whx"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_mgt6l"]
+[ext_resource type="Texture2D" uid="uid://drbrsun6c8802" path="res://art/UI/image0.png" id="2_guck1"]
+[ext_resource type="Texture2D" uid="uid://dg2w27w0pou4e" path="res://art/UI/image4.png" id="4_1buf7"]
+[ext_resource type="Texture2D" uid="uid://c5dfrbnhktvyf" path="res://art/UI/image3.png" id="5_iukg5"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mgt6l")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_guck1")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("4_1buf7")
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("5_iukg5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/PlayContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="remoteIpContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="remote_ip" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/remoteIpContainer"]
+layout_mode = 2
+placeholder_text = "Some remote ip"
+
+[node name="netpnumContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="net_p_num" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/netpnumContainer"]
+layout_mode = 2
+placeholder_text = "Some net player number"
+
+[node name="remotePortContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="remote_port" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/remotePortContainer"]
+layout_mode = 2
+placeholder_text = "remote port"
+
+[node name="localPortContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 10
+
+[node name="local_port" type="LineEdit" parent="MarginContainer/VBoxContainer/VBoxContainer/localPortContainer"]
+layout_mode = 2
+placeholder_text = "local port"
+
+[node name="QuitContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/QuitContainer"]
+layout_mode = 2
+text = "Return To Main Menu"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/PlayContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/VBoxContainer/remoteIpContainer/remote_ip" to="." method="_on_remote_ip_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/VBoxContainer/netpnumContainer/net_p_num" to="." method="_on_net_p_num_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/VBoxContainer/remotePortContainer/remote_port" to="." method="_on_remote_port_text_changed"]
+[connection signal="text_changed" from="MarginContainer/VBoxContainer/VBoxContainer/localPortContainer/local_port" to="." method="_on_local_port_text_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/QuitContainer/Quit" to="." method="_on_quit_pressed"]
