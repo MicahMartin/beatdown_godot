@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cf8io68mrogm0"]
+
+[ext_resource type="Texture2D" uid="uid://ci6g2w502pl60" path="res://art/particles/VFXRigsFreeGroundCracks_Crack.png" id="1_hppgl"]
+
+[resource]
+resource_name = "Material"
+transparency = 2
+alpha_scissor_threshold = 0.00597484
+alpha_antialiasing_mode = 0
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission_texture = ExtResource("1_hppgl")

@@ -17,16 +17,19 @@ script = ExtResource("1_025kw")
 
 [node name="char1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 7)
+visible = false
 script = ExtResource("4_ftguu")
 metadata/pnum = 1
 
 [node name="char2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 7)
+visible = false
 script = ExtResource("4_ftguu")
 metadata/pnum = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 3, 10)
+visible = false
 cull_mask = 1047553
 current = true
 fov = 107.5
@@ -34,6 +37,7 @@ size = 19.0
 script = ExtResource("2_5dtbb")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -46,11 +50,12 @@ transparent_bg = true
 handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
-size = Vector2i(640, 480)
-render_target_update_mode = 4
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 3, 15)
+visible = false
 cull_mask = 1047554
 projection = 1
 current = true
@@ -60,12 +65,14 @@ near = 0.001
 script = ExtResource("2_5dtbb")
 
 [node name="Stage" type="StaticBody3D" parent="."]
+visible = false
 
 [node name="Test_Stage" parent="Stage" instance=ExtResource("4_hm5qc")]
 transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 19.5, 0, 22)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 21.0647, 6, 20)
+visible = false
 layers = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
