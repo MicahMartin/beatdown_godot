@@ -1,9 +1,9 @@
 extends Node3D
 @onready var FGServer = get_node("/root/Main/FightingGameServer")
-@onready var cam = get_node("/root/Main/Camera3D")
 @onready var pNum = get_meta("pnum")
 @onready var charModel = "res://characters/" + FGServer.getModelName(pNum - 1)
 @onready var character = load(charModel).instantiate()
+
 var anim
 var modelScale
 var timesLooped
@@ -65,4 +65,5 @@ func _process(_delta):
 		rotation.y = 1
 	if(anim.current_animation):
 		animGoToFrame(anim, stateTime, animLoops)
+
 	pass

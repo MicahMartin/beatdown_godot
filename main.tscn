@@ -1,19 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnlr2s2w7dfj"]
+[gd_scene load_steps=11 format=3 uid="uid://dnlr2s2w7dfj"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_025kw"]
 [ext_resource type="Script" path="res://Camera3D.gd" id="2_5dtbb"]
+[ext_resource type="Shader" path="res://hit_impact.gdshader" id="3_t2awf"]
+[ext_resource type="Texture2D" uid="uid://03fitor5h7ix" path="res://art/waves.png" id="4_aahaj"]
 [ext_resource type="Script" path="res://character.gd" id="4_ftguu"]
 [ext_resource type="PackedScene" uid="uid://b84g18l5pcrpt" path="res://art/Test_Stage.gltf" id="4_hm5qc"]
+[ext_resource type="Texture2D" uid="uid://d3flvq5mcr5hk" path="res://art/radialgradient.png" id="5_kqlou"]
 [ext_resource type="Script" path="res://DebugStats.gd" id="5_onjlw"]
+[ext_resource type="Script" path="res://hitspark.gd" id="6_ckvc4"]
 
-[sub_resource type="Environment" id="Environment_2xrvx"]
-background_energy_multiplier = 3.0
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ikojq"]
+render_priority = 0
+shader = ExtResource("3_t2awf")
+shader_parameter/offsetStrength = 0.0
+shader_parameter/noiseTexture = ExtResource("4_aahaj")
 
 [node name="Main" type="Node"]
 process_mode = 1
 script = ExtResource("1_025kw")
 
 [node name="FightingGameServer" type="FightingGameServer" parent="."]
+
+[node name="hitspark_node" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+script = ExtResource("6_ckvc4")
+metadata/pnum = 1
+
+[node name="Sprite3D" type="Sprite3D" parent="hitspark_node"]
+layers = 2
+material_override = SubResource("ShaderMaterial_ikojq")
+texture = ExtResource("5_kqlou")
 
 [node name="char1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 7)
@@ -29,7 +46,6 @@ metadata/pnum = 2
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 3, 10)
-visible = false
 cull_mask = 1047553
 current = true
 fov = 107.5
@@ -37,7 +53,6 @@ size = 19.0
 script = ExtResource("2_5dtbb")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,11 +66,10 @@ handle_input_locally = false
 snap_2d_transforms_to_pixel = true
 snap_2d_vertices_to_pixel = true
 size = Vector2i(1152, 648)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.5, 3, 15)
-visible = false
 cull_mask = 1047554
 projection = 1
 current = true
@@ -72,11 +86,9 @@ transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 21.0647, 6, 20)
-visible = false
 layers = 3
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_2xrvx")
 
 [node name="p1DebugStats" type="MarginContainer" parent="."]
 offset_right = 40.0

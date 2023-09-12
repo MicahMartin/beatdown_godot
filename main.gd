@@ -1,5 +1,6 @@
 extends Node
 @onready var FGServer = get_node("FightingGameServer")
+@onready var hitspark = load("res://hitspark.tscn").instantiate()
 var p1charPointX
 var p1charPointY
 var p2charPointX
@@ -16,6 +17,7 @@ func _init():
 	pass
 	
 func _ready():
+	add_child(hitspark)
 	$p1DebugStats.add_property($char1, "stateNum", "")
 	$p1DebugStats.add_property($char1, "stateTime", "")
 	$p1DebugStats.add_property($char1, "faceRight", "")
@@ -58,7 +60,9 @@ func displayCbs():
 	
 	p1charPointX = stateObj["char1PosX"]
 	p1charPointY = stateObj["char1PosY"]
+	
 	#$impactEffect.showImpact(p1charPointX * scale)
+	#DebugGeometry.draw_debug_point(0, Vector3(stateObj["p1HitsparkX"] * scale, stateObj["p1HitsparkY"] * scale, 7), .5, Color(0,0,125))
 	DebugGeometry.draw_debug_point(0, Vector3(p1charPointX * scale, p1charPointY * scale, 7), .5, Color(0,0,125))
 	var p1cbs = stateObj["p1CollisionBoxes"]
 	for cb in p1cbs:

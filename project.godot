@@ -23,6 +23,10 @@ DebugGeometry="*res://debug_geometry.gd"
 GameManager="*res://game_manager.gd"
 AudioStreamManager="*res://audio_stream_manager.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/vsync/vsync_mode=0
