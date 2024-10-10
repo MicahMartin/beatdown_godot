@@ -18,6 +18,7 @@ func _init():
 	
 func _ready():
 	add_child(hitspark)
+	$p1DebugStats.add_property($char1, "health", "")
 	$p1DebugStats.add_property($char1, "stateNum", "")
 	$p1DebugStats.add_property($char1, "stateTime", "")
 	$p1DebugStats.add_property($char1, "faceRight", "")
@@ -26,6 +27,7 @@ func _ready():
 	$p1DebugStats.add_property($char1, "posX", "")
 	$p1DebugStats.add_property($char1, "posY", "")
 	
+	$p2DebugStats.add_property($char2, "health", "")
 	$p2DebugStats.add_property($char2, "stateNum", "")
 	$p2DebugStats.add_property($char2, "stateTime", "")
 	$p2DebugStats.add_property($char2, "faceRight", "")

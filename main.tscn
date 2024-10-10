@@ -34,13 +34,11 @@ texture = ExtResource("5_kqlou")
 
 [node name="char1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 0, 7)
-visible = false
 script = ExtResource("4_ftguu")
 metadata/pnum = 1
 
 [node name="char2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 7)
-visible = false
 script = ExtResource("4_ftguu")
 metadata/pnum = 2
 
@@ -79,16 +77,13 @@ near = 0.001
 script = ExtResource("2_5dtbb")
 
 [node name="Stage" type="StaticBody3D" parent="."]
-visible = false
 
 [node name="Test_Stage" parent="Stage" instance=ExtResource("4_hm5qc")]
 transform = Transform3D(-8.74228e-10, 0, 0.02, 0, 0.02, 0, -0.02, 0, -8.74228e-10, 19.5, 0, 22)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.965926, -0.0669873, 0.25, 0, 0.965926, 0.258819, -0.258819, -0.25, 0.933013, 21.0647, 6, 20)
+transform = Transform3D(0.924393, 0, 0.381442, 0, 1, 0, -0.381442, 0, 0.924393, 20, 3.45593, 20)
 layers = 3
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 
 [node name="p1DebugStats" type="MarginContainer" parent="."]
 offset_right = 40.0

@@ -4,6 +4,7 @@ extends Node3D
 @onready var charModel = "res://characters/" + FGServer.getModelName(pNum - 1)
 @onready var character = load(charModel).instantiate()
 
+var health
 var anim
 var modelScale
 var timesLooped
@@ -41,6 +42,7 @@ func _ready():
 
 func _process(_delta):
 	stateObj = FGServer.getGameState()
+	health = stateObj["char"+str(pNum)+"Health"]
 	faceRight = stateObj["char"+str(pNum)+"FaceRight"]
 	stateNum = stateObj["char"+str(pNum)+"StateNum"]
 	stateTime = stateObj["char"+str(pNum)+"StateTime"]
